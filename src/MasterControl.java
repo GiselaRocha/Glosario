@@ -3,32 +3,28 @@ package src;
 import java.io.IOException;
 
 public class MasterControl{
-    public static Lines shiftedLines;
+    public static Lines searchLines;
     public static Lines inputLines;
     public static Lines keyWordsLines;
     public static Lines keyWordsPages;
 
     public static void main(String[] args) throws IOException{
         inputLines = new Lines("inputLines");
-        shiftedLines = new Lines("shiftedLines");
-
+        searchLines = new Lines("searchLines");
         keyWordsLines = new Lines("keyWordsLines");
-        keyWordsPages = new Lines("keyWordsPages");
 
-
-        IChangeObserver shift = new SearchKeyWords();
+        IChangeObserver search = new SearchKeyWords();
         IChangeObserver order = new Aphabetizer();
 
-        inputLines.addChangeObservers(shift);
-        shiftedLines.addChangeObservers(order);
+        inputLines.addChangeObservers(search);
+        searchLines.addChangeObservers(order);
 
         Input input = new Input();
         input.readTXT(keyWordsLines);
         input.readPDF(inputLines);
 
         Output output = new Output();
-        output.printLines(shiftedLines); 
-        output.printLines(keyWordsLines);
+        output.printLines(searchLines); 
 
     }     
     

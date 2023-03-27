@@ -14,7 +14,7 @@ public class Lines extends TElement {
 
     public void storageLines(String line){
         lines.add(line);
-        announceChangeEvent(this);
+        
     }
 
     public void clearLines(){
@@ -27,6 +27,10 @@ public class Lines extends TElement {
 
     public void setLines(List<String> lines) {
         this.lines = lines;
+    }
+
+    public void announce() {
+        announceChangeEvent(this);
     }
 
     

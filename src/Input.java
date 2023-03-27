@@ -34,12 +34,12 @@ public class Input {
     }*/
 
     public void readPDF (Lines inputLines) throws IOException{
-        String rutaArchivoPdf = "files/prueba2.pdf";
+        String rutaArchivoPdf = "files/prueba3.pdf";
 
         PdfReader reader = new PdfReader(rutaArchivoPdf);
 
         try {
-            System.out.println(reader.getNumberOfPages());
+          //  System.out.println(reader.getNumberOfPages());
             for (int i = 1; i <= reader.getNumberOfPages(); i++) {
                 String textoPagina = PdfTextExtractor.getTextFromPage(reader, i);
                 String[] lineasPagina = textoPagina.split("\n");
@@ -54,6 +54,7 @@ public class Input {
         } catch (Exception e) {
             System.out.println("Error cargando pdf");
         }
+        inputLines.announce();
     }
 
     public void readTXT (Lines keyWordLines) throws IOException{
