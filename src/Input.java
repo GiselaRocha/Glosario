@@ -34,7 +34,7 @@ public class Input {
     }*/
 
     public void readPDF (Lines inputLines) throws IOException{
-        String rutaArchivoPdf = "files/prueba3.pdf";
+        String rutaArchivoPdf = "files/prueba2.pdf";
 
         PdfReader reader = new PdfReader(rutaArchivoPdf);
 
