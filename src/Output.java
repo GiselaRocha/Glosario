@@ -16,9 +16,9 @@ public class Output {
     }
 
     public void printLines(Lines lines){
-
         
         try {
+
              // Crear un nuevo documento PDF
              Document document = new Document(PageSize.A4, 50, 50, 50, 50);
            
