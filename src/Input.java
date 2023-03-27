@@ -14,12 +14,21 @@ public class Input {
     public Input() {
     }
 
-     public void readTittle (Lines inputLines) throws IOException{
+     public void readTittle (Lines inputLines, Lines keyWordLines) throws IOException{
         Scanner scanner = new Scanner(System.in, "Cp850");
+
+        System.out.println("Ingresa el nombre del archivo con las palabras clave (TXT):");
+
+        String line = scanner.nextLine();
+
+        String docKey ="files/" + line;
+
+        readTXT(keyWordLines, docKey);
+
 
         System.out.println("Ingresa el nombre del archivo que deseas crear tu glosario (PDF):");
 
-        String line = scanner.nextLine();
+        line = scanner.nextLine();
 
         String doc ="files/" + line + ".pdf";
 
@@ -53,8 +62,8 @@ public class Input {
         inputLines.announce();
     }
 
-    public void readTXT (Lines keyWordLines) throws IOException{
-        String rutaArchivoTxt = "files/keyWordsFile";
+    public void readTXT (Lines keyWordLines, String rutaArchivoTxt) throws IOException{
+        //String rutaArchivoTxt = "files/keyWordsFile";
 
         try {
             Scanner scanner = new Scanner(new File(rutaArchivoTxt), "Cp850");

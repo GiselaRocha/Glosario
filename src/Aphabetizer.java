@@ -5,9 +5,9 @@ import java.util.List;
 public class Aphabetizer implements IChangeObserver {
    
     @Override
-    public void notifyListener(Lines changedLine) {
-        if(changedLine.name == "shiftedLines"){
-            organizeLines(changedLine.getLines());
+    public void notifyListener(Lines searchLines) {
+        if(searchLines.name == "searchLines"){
+            organizeLines(searchLines.getLines());
         }
     }
 
