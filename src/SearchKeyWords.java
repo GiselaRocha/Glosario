@@ -14,7 +14,10 @@ public class SearchKeyWords implements IChangeObserver {
         for (String keyWord : MasterControl.keyWordsLines.getLines()) {
             for (String line : inputLines.getLines()) {
                 if (line.contains(keyWord)) {
-                    MasterControl.shiftedLines.storageLines(line);
+                    String[] parts = line.split("\\$\\$");
+                    String glosarioLine = parts[1] + ",";
+                    keyWord = keyWord + ": ";
+                    MasterControl.shiftedLines.storageLines(keyWord += glosarioLine);
                 }
             }
         }
