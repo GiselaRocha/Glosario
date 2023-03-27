@@ -8,6 +8,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.Scanner;
 
 public class Output {
 
@@ -15,14 +16,14 @@ public class Output {
     }
 
     public void printLines(Lines lines){
-        
 
+        
         try {
              // Crear un nuevo documento PDF
              Document document = new Document(PageSize.A4, 50, 50, 50, 50);
-
+           
              // Crear un objeto PdfWriter para escribir en el archivo PDF
-             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Glosario.pdf"));
+             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("GlosarioGenerado.pdf"));
  
              // Abrir el documento
              document.open();
@@ -52,5 +53,6 @@ public class Output {
         System.out.println("GLOSARIO \n");
         document.add(new Paragraph("GLOSARIO \n"));
     }
+
     
 }

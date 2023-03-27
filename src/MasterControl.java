@@ -20,8 +20,7 @@ public class MasterControl{
         searchLines.addChangeObservers(order);
 
         Input input = new Input();
-        input.readTXT(keyWordsLines);
-        input.readTittle(inputLines);
+        input.readTittle(inputLines, keyWordsLines);
 
         Output output = new Output();
         output.printLines(searchLines); 
