@@ -14,27 +14,23 @@ public class Input {
     public Input() {
     }
 
-   /*  public void readLines (Lines inputLines){
+     public void readTittle (Lines inputLines) throws IOException{
         Scanner scanner = new Scanner(System.in, "Cp850");
 
-        System.out.println("Introduce las lineas de texto (para terminar introduce una linea vacia):");
+        System.out.println("Ingresa el nombre del archivo que deseas crear tu glosario (PDF):");
 
-        String[][] line = scanner.nextLine();
+        String line = scanner.nextLine();
 
-        while (!line.isEmpty()){
+        String doc ="files/" + line + ".pdf";
 
-            inputLines.storageLines(line);
-
-            line = scanner.nextLine();
-
-        }
+        readPDF(inputLines, doc);
 
         scanner.close();
+        
+    }
 
-    }*/
-
-    public void readPDF (Lines inputLines) throws IOException{
-        String rutaArchivoPdf = "files/prueba3.pdf";
+    public void readPDF (Lines inputLines, String rutaArchivoPdf) throws IOException{
+       // String rutaArchivoPdf = "files/prueba3.pdf";
 
         PdfReader reader = new PdfReader(rutaArchivoPdf);
 

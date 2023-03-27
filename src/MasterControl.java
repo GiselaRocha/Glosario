@@ -21,7 +21,7 @@ public class MasterControl{
 
         Input input = new Input();
         input.readTXT(keyWordsLines);
-        input.readPDF(inputLines);
+        input.readTittle(inputLines);
 
         Output output = new Output();
         output.printLines(searchLines); 
