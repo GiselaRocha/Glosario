@@ -44,7 +44,6 @@ public class Input {
         PdfReader reader = new PdfReader(rutaArchivoPdf);
 
         try {
-          //  System.out.println(reader.getNumberOfPages());
             for (int i = 1; i <= reader.getNumberOfPages(); i++) {
                 String textoPagina = PdfTextExtractor.getTextFromPage(reader, i);
                 String[] lineasPagina = textoPagina.split("\n");
