@@ -14,7 +14,7 @@ public class Input {
     public Input() {
     }
 
-     public void readTittle (Lines inputLines, Lines keyWordLines) throws IOException{
+     public void read (Lines inputLines, Lines keyWordLines) throws IOException{
         Scanner scanner = new Scanner(System.in, "Cp850");
 
         System.out.println("Ingresa el nombre del archivo con las palabras clave (TXT):");
@@ -25,7 +25,6 @@ public class Input {
 
         readTXT(keyWordLines, docKey);
 
-
         System.out.println("Ingresa el nombre del archivo que deseas crear tu glosario (PDF):");
 
         line = scanner.nextLine();
@@ -34,7 +33,6 @@ public class Input {
 
         readPDF(inputLines, doc);
 
-        scanner.close();
         
     }
 
@@ -71,7 +69,6 @@ public class Input {
                 String linea = scanner.nextLine();
                 keyWordLines.storageLines(linea);
             }
-            scanner.close();
         } catch (Exception e) {
             System.out.println("Error leyendo txt");
         }
