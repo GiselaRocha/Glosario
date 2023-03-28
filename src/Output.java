@@ -15,15 +15,19 @@ public class Output {
     public Output() { 
     }
 
-    public void printLines(Lines lines){
+    public void out(Lines lines){
         
         try {
 
              // Crear un nuevo documento PDF
              Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+
+             System.out.println("Ingresa el nombre del nuevo glosario:");
+
+            String title = nameGlosary();
            
              // Crear un objeto PdfWriter para escribir en el archivo PDF
-             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("GlosarioGenerado.pdf"));
+             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(title));
  
              // Abrir el documento
              document.open();
@@ -50,8 +54,18 @@ public class Output {
     }
 
     public void printIntro(Document document) throws DocumentException{
-        System.out.println("GLOSARIO \n");
+        System.out.println("\nGLOSARIO \n");
         document.add(new Paragraph("GLOSARIO \n"));
+    }
+
+    public String nameGlosary(){
+        Scanner scanner = new Scanner(System.in, "Cp850");
+
+        String tittle = scanner.nextLine();
+
+        String doc = tittle + ".pdf";
+
+        return doc;
     }
 
     
