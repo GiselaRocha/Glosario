@@ -1,6 +1,5 @@
 package src;
 
-import java.util.ArrayList;
 
 public class SearchKeyWords implements IChangeObserver {
 
@@ -17,8 +16,6 @@ public class SearchKeyWords implements IChangeObserver {
         String keyWord = "";    
 
         for (String keyWords : MasterControl.keyWordsLines.getLines()) {
-
-            
 
             keyWord = keyWords + ":";
             glosarioLine = keyWord;
@@ -51,7 +48,7 @@ public class SearchKeyWords implements IChangeObserver {
         return glosarioLine;
     }
     
-    public void searchSeparateWords (String keyWords, String line, Lines searchLines, String glosarioLine) {
+  /*   public void searchSeparateWords (String keyWords, String line, Lines searchLines, String glosarioLine) {
         String[] parts = keyWords.split("\\&");
         for (int i = 0; i < parts.length; i++) {
             searchWords(parts[i], line, searchLines, glosarioLine);
@@ -67,6 +64,6 @@ public class SearchKeyWords implements IChangeObserver {
             }
         MasterControl.searchLines.storageLines(glosarioLine);
         glosarioLine = "";
-    }
+    }*/
 
 }

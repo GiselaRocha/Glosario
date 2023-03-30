@@ -63,7 +63,7 @@ public class Input {
         //String rutaArchivoTxt = "files/keyWordsFile";
 
         try {
-            Scanner scanner = new Scanner(new File(rutaArchivoTxt), "Cp850");
+            Scanner scanner = new Scanner(new File(rutaArchivoTxt));
 
             while (scanner.hasNextLine()) {
                 String linea = scanner.nextLine();

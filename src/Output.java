@@ -38,8 +38,15 @@ public class Output {
                 String parts[] = line.split("\\:");
                 System.out.println(parts[0].toUpperCase()+":");
                 document.add(new Paragraph(parts[0].toUpperCase()+":"));
+                try {
                 System.out.println("    " +parts[1] + "\n");
                 document.add(new Paragraph("    " +parts[1] + "\n"));
+                    
+                } catch (Exception e) {
+                    System.out.println("No se encontró\n");
+                    document.add(new Paragraph("No se encontró\n"));
+                }
+                
             }
 
             // Cerrar el documento
