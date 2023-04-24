@@ -24,7 +24,7 @@ public class SearchKeyWords implements IChangeObserver {
                 if (line.toLowerCase().contains(keyWords.toLowerCase())) {
 
                    String[] parts = line.split("\\$\\$");
-                    //glosarioLine += parts[1] + ",";
+                    
                     glosarioLine = repeatPages(glosarioLine, parts[1]);
                 }
             }
@@ -48,22 +48,5 @@ public class SearchKeyWords implements IChangeObserver {
         return glosarioLine;
     }
     
-  /*   public void searchSeparateWords (String keyWords, String line, Lines searchLines, String glosarioLine) {
-        String[] parts = keyWords.split("\\&");
-        for (int i = 0; i < parts.length; i++) {
-            searchWords(parts[i], line, searchLines, glosarioLine);
-            
-        }
-    }
-
-    public void searchWords (String keyWords, String line, Lines searchLines, String glosarioLine) {
-            if (line.toLowerCase().contains(keyWords.toLowerCase())) {
-
-                String[] parts = line.split("\\$\\$");
-                glosarioLine = repeatPages(glosarioLine, parts[1]);
-            }
-        MasterControl.searchLines.storageLines(glosarioLine);
-        glosarioLine = "";
-    }*/
 
 }

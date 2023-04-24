@@ -16,6 +16,9 @@ public class Input {
 
      public void read (Lines inputLines, Lines keyWordLines) throws IOException{
         Scanner scanner = new Scanner(System.in, "Cp850");
+        boolean correct = false;
+
+        while(correct == false){
 
         System.out.println("Ingresa el nombre del archivo con las palabras clave (TXT):");
 
@@ -23,25 +26,28 @@ public class Input {
 
         String docKey ="files/" + line;
 
-        readTXT(keyWordLines, docKey);
+        correct = readTXT(keyWordLines, docKey);
+
+        }
+        correct = false;
+        
+        while(correct == false){
 
         System.out.println("Ingresa el nombre del archivo que deseas crear tu glosario (PDF):");
 
-        line = scanner.nextLine();
+        String line = scanner.nextLine();
 
         String doc ="files/" + line + ".pdf";
 
-        readPDF(inputLines, doc);
+        correct = readPDF(inputLines, doc);
 
-        
+        }
     }
 
-    public void readPDF (Lines inputLines, String rutaArchivoPdf) throws IOException{
-       // String rutaArchivoPdf = "files/prueba3.pdf";
-
-        PdfReader reader = new PdfReader(rutaArchivoPdf);
+    public boolean readPDF (Lines inputLines, String rutaArchivoPdf) throws IOException{
 
         try {
+            PdfReader reader = new PdfReader(rutaArchivoPdf);
             for (int i = 1; i <= reader.getNumberOfPages(); i++) {
                 String textoPagina = PdfTextExtractor.getTextFromPage(reader, i);
                 String[] lineasPagina = textoPagina.split("\n");
@@ -54,14 +60,15 @@ public class Input {
             }
             reader.close();
         } catch (Exception e) {
-            System.out.println("Error cargando pdf");
+            System.out.println("Error cargando pdf. Intente de nuevo.");
+            return false;
         }
         inputLines.announce();
+        return true; 
     }
 
-    public void readTXT (Lines keyWordLines, String rutaArchivoTxt) throws IOException{
-        //String rutaArchivoTxt = "files/keyWordsFile";
-
+    public boolean readTXT (Lines keyWordLines, String rutaArchivoTxt) throws IOException{
+        
         try {
             Scanner scanner = new Scanner(new File(rutaArchivoTxt));
 
@@ -70,7 +77,10 @@ public class Input {
                 keyWordLines.storageLines(linea);
             }
         } catch (Exception e) {
-            System.out.println("Error leyendo txt");
+            System.out.println("Error leyendo txt. Intrente de nuevo.");
+            return false;
         }
+
+        return true;
     }
 }

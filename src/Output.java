@@ -35,13 +35,13 @@ public class Output {
              printIntro(document);
 
              for (String line : lines.getLines()) {
+                
                 String parts[] = line.split("\\:");
-                System.out.println(parts[0].toUpperCase()+":");
-                document.add(new Paragraph(parts[0].toUpperCase()+":"));
+                System.out.println(parts[0]+":");
+                document.add(new Paragraph(parts[0]+":"));
                 try {
                 System.out.println("    " +parts[1] + "\n");
                 document.add(new Paragraph("    " +parts[1] + "\n"));
-                    
                 } catch (Exception e) {
                     System.out.println("No se encontró\n");
                     document.add(new Paragraph("No se encontró\n"));
@@ -55,7 +55,7 @@ public class Output {
             System.out.println("Archivo PDF creado correctamente.");
  
         } catch (DocumentException | FileNotFoundException e) {
-            // TODO: handle exception
+            //  handle exception
         }
         
     }
